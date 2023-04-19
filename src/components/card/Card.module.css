@@ -1,0 +1,49 @@
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    background-color:  	#44281d;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s ease-out;
+}
+
+.contenedor:hover{
+    box-shadow: 3px 3px 3px #fff;
+    rotate: 02deg;
+}
+.datos{
+    color: black;
+    background-color: #f0e14a;
+    font-size: small;
+    width: 95%;
+    height: 20px;
+    margin: auto;
+    border-radius: 10px;
+}
+.datosOrigen{
+    color: black;
+    background-color: #f0e14a;
+    font-size: small;
+    width: 95%;
+    height: 40px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.imagenes{
+    width: 50%;
+    padding: 8px;
+    border-radius: 10px;
+}
+.botonCerrar{
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+    background-color: black ;
+    margin: 5px;
+    color: aliceblue;
+}
