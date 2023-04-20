@@ -1,8 +1,8 @@
 import Card from '../card/Card';
 import estilo from "./Cards.module.css"
 
-export default function Cards({characters}) {
-   const onClose = () => window.alert('Emulamos que se cierra la card')
+export default function Cards({characters, onClose}) {
+   
    return (<div className={estilo.contenedor}>
       {
          characters.map(({ id, name, status, species, gender, origin, image }) => {

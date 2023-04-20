@@ -1,12 +1,11 @@
-import React from "react";
 import SearchBar from "../search-bar/SearchBar";
+import estilo from "./Nav.module.css"
 
-const Nav = () => {
-
+const Nav = ({onSearch}) => {
 
     return (
-        <div>
-            <SearchBar />
+        <div className={estilo.contenedor}>
+            <SearchBar onSearch={onSearch}/>
         </div>
     )
 };
