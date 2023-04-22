@@ -1,4 +1,4 @@
-import estilo from "./SearchBar.module.css"
+import css from "./SearchBar.module.css"
 import { useState } from "react";
 
 export default function SearchBar({ onSearch }) {
@@ -10,14 +10,14 @@ export default function SearchBar({ onSearch }) {
    };
 
    return (
-      <div className={estilo.contenedor}>
-         <input className={estilo.input}
+      <div className={css.contenedor}>
+         <input className={css.input}
             type='search'
             onChange={handleChange}
             value={id}
          />
          <button
-            className={estilo.botonBarra}
+            className={css.botonBarra}
             onClick={()=> onSearch(id)}//tengo que pasar id a onSearch como argumento pero uso cb para que no se ejecute la funcion apenas lea esa linea
          >Agregar</button>
       </div>
