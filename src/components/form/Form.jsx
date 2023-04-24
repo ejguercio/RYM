@@ -1,25 +1,48 @@
 import css from "./Form.module.css"
 import { useState } from "react";
+import validation from "./validation";
 
-const Form = ()=>{
+const Form = ({ login }) => {
 
-const [userData, setUserData]= useState({
-    email:"",
-    password:""
-});
-const [erros,setErrors]=useState({});
+    const [userData, setUserData] = useState({
+        email: "",
+        password: ""
+    });
+    const [errors, setErrors] = useState({
+        email: "",
+        password: ""
+    });
 
-const handleChange= (event)=>{
-    setUserData({...userData, [event.target.name]: event.target.value})
-};
-    return(
-        <form className={css.contenedor}>
-            <label>EMAIL</label>
-            <input placeholder="email..." name="email" value={userData.email} onChange={handleChange}></input>
-            <label>PASSWORD</label>
-            <input placeholder="pass..." name="password" value={userData.password} onChange={handleChange} ></input>
-            <button>Submit</button>
-        </form>     
+    const handleChange = (event) => {
+        const property = event.target.name;
+        const value = event.target.value;
+       
+        setUserData({ ...userData, [property]: value })
+        validation({ ...userData, [property]: value }, errors, setErrors);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        login(userData);
+    };
+    return (
+        <form className={css.contenedor} onSubmit={handleSubmit}>
+            <label htmlFor="email">EMAIL</label>
+            <input placeholder="email..."
+                type="text" name="email"
+                value={userData.email}
+                onChange={handleChange}>
+            </input>
+            <span className={css.errores}>{errors.email}</span>
+            <label htmlFor="password">PASSWORD</label>
+            <input placeholder="pass..."
+                type="text" name="password"
+                value={userData.password}
+                onChange={handleChange} >
+            </input>
+            <span className={css.errores} >{errors.password}</span>
+            <button className={css.boton} type="submit">Submit</button>
+        </form>
     )
 };
 

@@ -1,8 +1,8 @@
 import './App.css';
 //import SearchBar from './components/search-bar/SearchBar.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Nav from './components/nav/Nav';
 import Cards from './components/cards/Cards.jsx';
 import About from "./components/about/About.jsx";
@@ -11,6 +11,21 @@ import Form from "./components/form/Form";
 
 function App() {
    const [characters, setCharacters] = useState([]);
+   const navigate=useNavigate();
+   const [access, setAccess] = useState(false);
+   const EMAIL = "juan@gmail.com";
+   const PASSWORD = "123456";
+
+   const login = (userData) => {
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      };
+   }
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
 
    const onSearch = (id) => {
       axios(`https://rickandmortyapi.com/api/character/${id}`)//peticion
@@ -27,13 +42,13 @@ function App() {
       setCharacters(characters.filter(personaje => personaje.id !== Number(id)))
    };
 
-   const {pathname} = useLocation(); {/*del objeto useLocation saco la propiedad pathname con destructuring*/}
+   const { pathname } = useLocation(); {/*del objeto useLocation saco la propiedad pathname con destructuring*/ }
    return (
       <div className='App'>
-        { pathname!=="/" && <Nav onSearch={onSearch} />} {/* si no estoy en el login muestro la navBar */}
+         {pathname !== "/" && <Nav onSearch={onSearch} />} {/* si no estoy en el login muestro la navBar */}
          <Routes>
             <Route path="/"
-               element={<Form />} />
+               element={<Form login={login} />} />
             <Route path="/about"
                element={<About />} />
             <Route path="/home"

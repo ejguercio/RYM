@@ -1,0 +1,17 @@
+.contenedor{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    height: auto;
+    background-color: #24325fff;
+    margin: 20px auto;
+}
+.boton{
+    margin: 10px;
+}
+
+.errores{
+    height: 20px;
+    color: white;
+}
