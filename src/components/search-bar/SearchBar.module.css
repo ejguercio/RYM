@@ -1,11 +1,12 @@
 .contenedor {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to top, #97ce4c, #000000);
+    justify-content:center;
+    background-color: #24325fff;
     height: 50px;
     width: 50%;
     min-width: 200px;
+    max-width: 400px;
 }
 
 .input {
@@ -14,20 +15,23 @@
     border: none;
     border-radius: 15px; 
     width: 50%;
+    padding: 10px;
 }
 
 .botonBarra {
     margin: 5px;
     height: 60%;
     width: 80px;
-    background-color:#f0e14a;
     padding: 3px;
     font-family: fantasy;
+    background-color:#242424;
     color: #000000;
-    border: 2px solid #44281d;
-    border-radius: 10px;  
+    border: #fce407 solid 3px;
+    color: #fce407;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
 }
 
 .botonBarra:hover{
-    box-shadow: 2px 2px 8px #ffffff;
+    box-shadow: 2px 2px 5px #ffffff;
 }

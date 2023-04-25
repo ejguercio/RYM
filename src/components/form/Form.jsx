@@ -18,7 +18,7 @@ const Form = ({ login }) => {
         const value = event.target.value;
        
         setUserData({ ...userData, [property]: value })
-        validation({ ...userData, [property]: value }, errors, setErrors);
+        setErrors(validation({ ...userData, [property]: value }));
     };
 
     const handleSubmit = (event) => {

@@ -7,11 +7,11 @@ const Nav = ({ onSearch }) => {
     return (
         <div className={css.contenedor}>
             <NavLink to="/home">
-                <button>HOME</button>
+                <button className={css.botonBarra}>HOME</button>
             </NavLink>
             <SearchBar onSearch={onSearch} />
             <NavLink to="/about">
-                <button>ABOUT</button>
+                <button className={css.botonBarra}>ABOUT</button>
             </NavLink>
 
         </div>

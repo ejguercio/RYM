@@ -2,26 +2,26 @@ const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const regexUnNumero = /.*\d+.*/;
 const regexCantCarateres = /^.{6,10}$/;
 
-const validation = (userData, errors, setErrors) => {
+const validation = (userData) => {
+    const errors={}
     // CORREO
-
-    if (userData.email==="") 
-        setErrors({ ...errors, email: "campo vacio" })
-    else if(userData.email.length>35)
-        setErrors({ ...errors, email: "no puede haber mas de 35 caracteres" })
-    else if (!regexCorreo.test(userData.email))
-        setErrors({ ...errors, email: "tiene que ingresar un email" })
-    else
-    setErrors({ ...errors, email: "" })
-    
+    if (!regexCorreo.test(userData.email)) {
+        errors.email="debes ingresar un correo"
+    }
+    if (!userData.email){
+        errors.email="campo vacio"
+    }
+    if (userData.email.length>35){
+        errors.email="no pueden ser mas de 35 caracteres"
+    }
     //CONTRASEÑA
-    if (!regexCantCarateres.test(userData.password))
-        setErrors({ ...errors, password: "debe tener entre 6 y 10 caracteres" })
-    else if (!regexUnNumero.test(userData.password))
-        setErrors({ ...errors, password: "debe haber al menos un numero" })
-    else
-        setErrors({ ...errors, password: "" })
-
+    if(!regexCantCarateres.test(userData.password)){
+        errors.password="tiene que haber entre 6 y 10 caracteres"
+    }
+    if(!regexUnNumero.test(userData.password)){
+        errors.password="al menos deberia haber un numero"
+    }
+    return errors;
 };
 
 

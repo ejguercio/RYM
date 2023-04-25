@@ -5,7 +5,7 @@
     width: 200px;
     height: 300px;
     margin: 10px;
-    background-color:  	#44281d;
+    background-color:  #242424;
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease-out;
@@ -17,7 +17,7 @@
 }
 .datos{
     color: black;
-    background-color: #f0e14a;
+    background-color: #fce407;
     font-size: small;
     width: 95%;
     height: 20px;

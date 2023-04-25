@@ -6,6 +6,8 @@
     height: auto;
     background-color: #24325fff;
     margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
 }
 .boton{
     margin: 10px;
