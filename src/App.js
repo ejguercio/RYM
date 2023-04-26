@@ -8,6 +8,7 @@ import Cards from './components/cards/Cards.jsx';
 import About from "./components/about/About.jsx";
 import Detail from "./components/deatil/Deatil";
 import Form from "./components/form/Form";
+import Favorites from './components/favorites/Favorites';
 
 function App() {
    const [characters, setCharacters] = useState([]);
@@ -22,6 +23,9 @@ function App() {
          navigate('/home');
       };
    }
+
+   const logout=()=>{};
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
@@ -40,9 +44,10 @@ function App() {
 
    const onClose = (id) => {
       setCharacters(characters.filter(personaje => personaje.id !== Number(id)))
+      
    };
 
-   const { pathname } = useLocation(); {/*del objeto useLocation saco la propiedad pathname con destructuring*/ }
+   const { pathname } = useLocation(); //del objeto useLocation saco la propiedad pathname con destructuring
    return (
       <div className='App'>
          {pathname !== "/" && <Nav onSearch={onSearch} />} {/* si no estoy en el login muestro la navBar */}
@@ -55,6 +60,8 @@ function App() {
                element={<Cards characters={characters} onClose={onClose} />} />
             <Route path="/detail/:detailId"
                element={<Detail />} />
+            <Route path="/favorites"
+               element={<Favorites />} />
          </Routes>
 
       </div>

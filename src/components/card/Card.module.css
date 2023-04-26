@@ -1,11 +1,12 @@
 .contenedor{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
     width: 200px;
     height: 300px;
     margin: 10px;
-    background-color:  #242424;
+    background-color:  #24325fff;
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease-out;
@@ -17,19 +18,10 @@
 }
 .datos{
     color: black;
-    background-color: #fce407;
+    background-color:  #f0e14a;
     font-size: small;
     width: 95%;
     height: 20px;
-    margin: auto;
-    border-radius: 10px;
-}
-.datosOrigen{
-    color: black;
-    background-color: #f0e14a;
-    font-size: small;
-    width: 95%;
-    height: 40px;
     margin: auto;
     border-radius: 10px;
 }

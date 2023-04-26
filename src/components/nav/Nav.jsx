@@ -9,9 +9,15 @@ const Nav = ({ onSearch }) => {
             <NavLink to="/home">
                 <button className={css.botonBarra}>HOME</button>
             </NavLink>
+            <NavLink to="/favorites">
+                <button className={css.botonBarra}>FAVORITES</button>
+            </NavLink>
             <SearchBar onSearch={onSearch} />
             <NavLink to="/about">
                 <button className={css.botonBarra}>ABOUT</button>
+            </NavLink>
+            <NavLink to="/">
+                <button className={css.botonBarra}>LOG-OUT</button>
             </NavLink>
 
         </div>
