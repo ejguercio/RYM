@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 
 
-function Card({ id, name, status, image, onClose, addFav, removeFav, myFavorites }) {
+function Card({ id, name, status, image, gender, onClose, addFav, removeFav, myFavorites }) {
    const [isFav, setIsFav] = useState(false);
 
    const handleFavorite = () => {
@@ -14,7 +14,7 @@ function Card({ id, name, status, image, onClose, addFav, removeFav, myFavorites
          removeFav(id)
       } else {
          setIsFav(true)
-         addFav({ id, name, status, image })
+         addFav({ id, name, status, image, gender })
       }
    };
 
@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      addFav: ({ id, name, status, image }) => dispatch(addFav({ id, name, status, image })),
+      addFav: ({ id, name, status, image, gender }) => dispatch(addFav({ id, name, status, image, gender })),
       removeFav: (id) => dispatch(removeFav(id))
    }
 };
