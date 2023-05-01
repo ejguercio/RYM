@@ -24,7 +24,7 @@ function App() {
       };
    }
 
-   const logout=()=>{};
+   const logout = () => { };
 
    useEffect(() => {
       !access && navigate('/');
@@ -32,19 +32,20 @@ function App() {
 
 
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`)//peticion
-         .then(({ data }) => { //respuesta a la peticion
-            if (data.name) {
+      fetch(`https://rickandmortyapi.com/api/character/${id}`)//peticion
+         .then((response) => response.json())  //respuesta a la peticion
+         .then((data) => {
+            if (data.name && !characters.find((charac) => charac.id === data.id)) {
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
-               window.alert('¡No hay personajes con este ID!');
+               alert('No es por ahí');
             }
          });
    }
 
    const onClose = (id) => {
       setCharacters(characters.filter(personaje => personaje.id !== Number(id)))
-      
+
    };
 
    const { pathname } = useLocation(); //del objeto useLocation saco la propiedad pathname con destructuring

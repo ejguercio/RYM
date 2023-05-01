@@ -9,17 +9,26 @@ export default function SearchBar({ onSearch }) {
       setId(event.target.value)
    };
 
+   const handleKeysPress = (event) => {
+      if (event.key === "Enter") {
+         onSearch(id)
+         setId("")
+      }
+   };
+
    return (
       <div className={css.contenedor}>
          <input className={css.input}
             type='search'
-            onChange={handleChange}
             value={id}
+            onChange={handleChange}
+            onKeyDown={handleKeysPress}
+            placeholder="Search ID 1-826"
          />
          <button
             className={css.botonBarra}
-            onClick={()=> onSearch(id)}//tengo que pasar id a onSearch como argumento pero uso cb para que no se ejecute la funcion apenas lea esa linea
-         >Agregar</button>
+            onClick={() => { onSearch(id); setId("") }}//tengo que pasar id a onSearch como argumento pero uso cb para que no se ejecute la funcion apenas lea esa linea
+         >ADD</button>
       </div>
    );
 }

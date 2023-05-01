@@ -22,14 +22,18 @@ const Deatil = () => {
     }, [detailId]);
 
     return (
-        <div>
-            <h1>DETALLES</h1>
+        <div className={css.contenedor}>
+            <div className={css.contenedorDatos}>
+            <h1 className={css.datos}>DETALLES</h1>
             <h2 className={css.datos}>Nombre: {character.name}</h2>
             <h2 className={css.datos}>Estado: {character.status}</h2>
             <h2 className={css.datos}>Especie: {character.species}</h2>
             <h2 className={css.datos}>Genero: {character.gender}</h2>
-            <h2 className={css.datosOrigen}>Origen: {character.origin?.name}</h2> 
+            <h2 className={css.datosOrigen }>Origen: {character.origin?.name}</h2> 
+            </div>
+            <div>
             <img className={css.imagenes} src={character.image} alt='' />
+            </div>
         </div>
     )
 };

@@ -1,6 +1,10 @@
 @font-face {
   font-family: 'RyM';
-  src: url("fonts/rickandmorty.ttf");
+  src: url("fonts/rickandmorty2.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'floyd';
+  src: url("fonts/floyd.TTF") format('truetype'); 
 }
 
 body {

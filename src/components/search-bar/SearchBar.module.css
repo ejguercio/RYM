@@ -15,6 +15,7 @@
     border: none;
     border-radius: 15px; 
     width: 50%;
+    max-width: 120px;
     padding: 10px;
 }
 
@@ -25,7 +26,7 @@
     padding: 3px;
     font-family: RyM;
     font-size: large;
-    background-color: #242c3c;
+    background-color: rgba(0, 0, 0, 0.6);
     color: #000000;
     border:  #2ad828  solid 3px;
     color:  #2ad828 ;

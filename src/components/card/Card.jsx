@@ -30,11 +30,11 @@ function Card({ id, name, status, image, gender, onClose, addFav, removeFav, myF
       <div className={css.contenedor}>
          {
             isFav ? 
-               (<h2>Es favorito</h2>)
+               (<h2 className={css.enFavs}>En favoritos</h2>)
              : (<button className={css.botonCerrar} onClick={() => onClose(id)}>X</button>)
          }
          <NavLink className={css.datos} to={`/detail/${id}`}>
-            <h2 className={css.datos}>Nombre: {name}</h2>
+            <h2 className={css.nombre} >{name}</h2>
          </NavLink>
          <h2 className={css.datos}>Estado: {status}</h2>
          <button onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</button>

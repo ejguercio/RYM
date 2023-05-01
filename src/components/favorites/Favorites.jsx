@@ -20,20 +20,22 @@ const Favorites = ({ myFavorites, onClose }) => {
     };
 
     return (<div className={css.contenedor}>
+        <div className={css.contenedorFiltros}>
+            <select onChange={handleOrder}>
+                <option value="A">Ascendente</option>
+                <option value="D">Descendente</option>
+            </select>
 
-        <select onChange={handleOrder}>
-            <option value="A">Ascendente</option>
-            <option value="D">Descendente</option>
-        </select>
+            <select onChange={handleFilter}>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Genderless">Genderless</option>
+                <option value="unknown">unknown</option>
+            </select>
+        </div >
 
-        <select onChange={handleFilter}>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Genderless">Genderless</option>
-            <option value="unknown">unknown</option>
-        </select>
         {
-            myFavorites?.map(({ id, name, status, gender,image }) => {
+            myFavorites?.map(({ id, name, status, gender, image }) => {
                 return (
                     <Card
                         key={id}// para uso interno de React, no la veremos
@@ -47,6 +49,7 @@ const Favorites = ({ myFavorites, onClose }) => {
                 )
             })
         }
+
     </div>)
 };
 
