@@ -1,0 +1,39 @@
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    background-color: #24325fff;
+    height: 55px;
+    width: 95%;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.input {
+    margin: 5px;
+    height: 60%;
+    border: none;
+    border-radius: 15px; 
+    width: 50%;
+    max-width: 120px;
+    padding: 10px;
+}
+
+.botonBarra {
+    margin: 5px;
+    height:40px;
+    width: 80px;
+    padding: 3px;
+    font-family: RyM;
+    font-size: large;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #000000;
+    border:  #2ad828  solid 3px;
+    color:  #2ad828 ;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+}
+
+.botonBarra:hover{
+    box-shadow: 2px 2px 5px #ffffff;
+}

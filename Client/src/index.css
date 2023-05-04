@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'RyM';
+  src: url("../src/assets/fonts/rickandmorty2.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'floyd';
+  src: url("../src/assets/fonts/floyd.TTF") format('truetype'); 
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* agregado por Juan*/
+  background-image: url(./assets/images/rick3.jpg);
+  background-repeat:repeat;
+  background-size:cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
