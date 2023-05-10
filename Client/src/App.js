@@ -1,5 +1,4 @@
 import './App.css';
-//import SearchBar from './components/search-bar/SearchBar.jsx';
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Nav from './components/nav/Nav';
@@ -8,19 +7,22 @@ import About from "./components/about/About.jsx";
 import Detail from "./components/deatil/Deatil";
 import Form from "./components/form/Form";
 import Favorites from './components/favorites/Favorites';
+import axios from 'axios';
 
 function App() {
    const [characters, setCharacters] = useState([]);
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const EMAIL = "juan@gmail.com";
-   const PASSWORD = "123456";
-
-   const login = (userData) => {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      };
+  
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`)
+         .then(({ data }) => {
+            const { access } = data;   //del objeto que responde el back en su controller login me quedo 
+            setAccess(access);         //con la propiedad acces que es un boolean
+            access && navigate('/home');//si acces es true me deja entrar al Home
+         });
    }
 
    const logout = () => { };
@@ -43,8 +45,7 @@ function App() {
    }
 
    const onClose = (id) => {
-      setCharacters(characters.filter(personaje => personaje.id !== Number(id)))
-
+      setCharacters(characters.filter(personaje => personaje.id !== id))
    };
 
    const { pathname } = useLocation(); //del objeto useLocation saco la propiedad pathname con destructuring

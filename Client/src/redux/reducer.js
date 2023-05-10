@@ -10,18 +10,17 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case ADD_FAV: {
-            //filtrar aca que no haya un favorito cuando ya guardado?
             return {// payload nos trae un obj con un personaje
                 ...state,
-                myFavorites: [...state.allFavs, payload],
-                allFavs: [...state.allFavs, payload]
+                myFavorites: payload,
+                allFavs: payload
             }
         }
         case REMOVE_FAV: {
-            return {//payload nos trae un id de un personaje
+            return {// payload nos trae el id de un personaje
                 ...state,
-                myFavorites: state.myFavorites.filter(favorito => favorito.id !== Number(payload)),
-                allFavs: state.allFavs.filter(favorito => favorito.id !== Number(payload))
+                myFavorites: payload,
+                allFavs: payload
             }
         }
 
