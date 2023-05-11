@@ -13,16 +13,20 @@ function App() {
    const [characters, setCharacters] = useState([]);
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-  
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-         .then(({ data }) => {
-            const { access } = data;   //del objeto que responde el back en su controller login me quedo 
-            setAccess(access);         //con la propiedad acces que es un boolean
-            access && navigate('/home');//si acces es true me deja entrar al Home
-         });
+
+   const login = async (userData) => {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+   
+         const { data } = await axios(URL + `?email=${email}&password=${password}`)
+         const { access } = data;   //del objeto que responde el back en su controller login me quedo 
+         setAccess(access);         //con la propiedad acces que es un boolean
+         access && navigate('/home');//si acces es true me deja entrar al Home  
+         
+      } catch (error) {
+         console.log(error.message)
+      }
    }
 
    const logout = () => { };
@@ -32,16 +36,16 @@ function App() {
    }, [access]);
 
 
-   const onSearch = (id) => {
-      fetch(`http://localhost:3001/rickandmorty/character/${id}`)//peticion
-         .then((response) => response.json())  //respuesta a la peticion
-         .then((data) => {
-            if (data.name && !characters.find((charac) => charac.id === data.id)) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               alert('No es por ahí');
-            }
-         });
+   const onSearch = async (id) => {
+      try {
+         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+         (data.name && !characters.find((charac) => charac.id === data.id)) ?
+            setCharacters((oldChars) => [...oldChars, data])
+            : alert('Personaje ya agregado');
+            
+      } catch (error) {
+         alert(error.response.data); //imprimo parte del objeto que devuelve axios, donde indica el error
+      }
    }
 
    const onClose = (id) => {

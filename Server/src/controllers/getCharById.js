@@ -1,20 +1,20 @@
 const URL = "https://rickandmortyapi.com/api/character/";
 const axios = require("axios");
 
-const getCharById = (req, res) => {
-    const { id } = req.params;
+const getCharById = async (req, res) => {
+    try {
+        const { id } = req.params;
 
-    axios.get(`${URL}/${id}`)
-        .then(response => response.data)
-        .then(({ status, name, species, origin, image, gender }) => {
+        const { data } = await axios.get(`${URL}/${id}`) //la api arroja un error cuando hacemos mal la peticion
+        //if (!data.name) throw Error("Not found")
+        const { status, name, species, origin, image, gender } = data;
 
-            if (name) {//solo evaluo una propiedad porque id en cierta forma ya esta validada antes porque la necesitamos
-                const character = { id, status, name, species, origin, image, gender }
-                return res.status(200).json(character)
-            }
-            return res.status(404).send("Not found")
-        })
-        .catch(error => res.status(500).send(error.message))
+        const character = { id, status, name, species, origin, image, gender }
+        return res.status(200).json(character)
+
+    } catch (error) {
+        return res.status(404).send(error.response.data.error)//este error viene en un obejto que arroja la API
+    }
 }
 
 module.exports = {
