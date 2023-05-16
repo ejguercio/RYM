@@ -19,35 +19,37 @@ const Favorites = ({ myFavorites, onClose }) => {
         dispatch(filterCards(event.target.value))
     };
 
-    return (<div className={css.contenedor}>
-        <div className={css.contenedorFiltros}>
-            <select onChange={handleOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-            </select>
+    return (
+    <div className={css.contenedor}>
+        <div className={css.contenedorAllFiltros}>
+            <h2 className={css.titulo}>FAVORITES</h2>
+            <div className={css.contenedorFiltros}>
+                <select onChange={handleOrder} className={css.nombreFiltros}>
+                    <option value="A">Ascendente</option>
+                    <option value="D">Descendente</option>
+                </select>
 
-            <select onChange={handleFilter}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Genderless">Genderless</option>
-                <option value="unknown">unknown</option>
-            </select>
-        </div >
-
-        {
-            myFavorites?.map(({ id, name, status, gender, image }) => {
-                return (
-                    <Card
-                        key={id}// para uso interno de React, no la veremos
-                        id={id}
-                        name={name}
-                        status={status}
-                        gender={gender}
-                        image={image}
-                        onClose={onClose}
-                    />
-                )
-            })
+                <select onChange={handleFilter} className={css.nombreFiltros}>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Genderless">Genderless</option>
+                    <option value="unknown">unknown</option>
+                </select>
+            </div >
+        </div>
+        {myFavorites?.map(({ id, name, status, gender, image }) => {
+            return (
+                <Card
+                    key={id}// para uso interno de React, no la veremos
+                    id={id}
+                    name={name}
+                    status={status}
+                    gender={gender}
+                    image={image}
+                    onClose={onClose}
+                />
+            )
+        })
         }
 
     </div>)

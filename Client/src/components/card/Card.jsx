@@ -28,10 +28,8 @@ function Card({ id, name, status, image, gender, onClose, addFav, removeFav, myF
 
    return (
       <div className={css.contenedor}>
-         {
-            isFav ? 
-               (<h2 className={css.enFavs}>En favoritos</h2>)
-             : (<button className={css.botonCerrar} onClick={() => onClose(id)}>X</button>)
+         {  isFav ? (<h2 className={css.enFavs}>En favoritos</h2>)
+                  : (<button className={css.botonCerrar} onClick={() => onClose(id)}>X</button>)
          }
          <NavLink className={css.datos} to={`/detail/${id}`}>
             <h2 className={css.nombre} >{name}</h2>

@@ -2,9 +2,10 @@
   font-family: 'RyM';
   src: url("../src/assets/fonts/rickandmorty2.ttf") format('truetype');
 }
+
 @font-face {
   font-family: 'floyd';
-  src: url("../src/assets/fonts/floyd.TTF") format('truetype'); 
+  src: url("../src/assets/fonts/floyd.TTF") format('truetype');
 }
 
 body {
@@ -15,8 +16,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* agregado por Juan*/
-  background-image: url(./assets/images/rick3.jpg);
-  background-repeat:repeat;
+  background-image: url(./assets/images/Rick.png);
+  background-repeat: none;
   background-size:cover;
 }
 
