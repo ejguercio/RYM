@@ -6,7 +6,6 @@ const getCharById = async (req, res) => {
         const { id } = req.params;
 
         const { data } = await axios.get(`${URL}/${id}`) //la api arroja un error cuando hacemos mal la peticion
-        //if (!data.name) throw Error("Not found")
         const { status, name, species, origin, image, gender } = data;
 
         const character = { id, status, name, species, origin, image, gender }
