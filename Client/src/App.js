@@ -18,14 +18,14 @@ function App() {
       try {
          const { email, password } = userData;
          const URL = 'http://localhost:3001/rickandmorty/login/';
-   
+
          const { data } = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;   //del objeto que responde el back en su controller login me quedo 
          setAccess(access);         //con la propiedad acces que es un boolean
          access && navigate('/home');//si acces es true me deja entrar al Home  
-         
+
       } catch (error) {
-         console.log(error.message)
+         return { error: error.message};
       }
    }
 
@@ -42,7 +42,7 @@ function App() {
          (data.name && !characters.find((charac) => charac.id === data.id)) ?
             setCharacters((oldChars) => [...oldChars, data])
             : alert('Personaje ya agregado');
-            
+
       } catch (error) {
          alert(error.response.data); //imprimo parte del objeto que devuelve axios, donde indica el error
       }

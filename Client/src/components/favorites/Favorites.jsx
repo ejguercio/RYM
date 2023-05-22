@@ -37,14 +37,16 @@ const Favorites = ({ myFavorites, onClose }) => {
                 </select>
             </div >
         </div>
-        {myFavorites?.map(({ id, name, status, gender, image }) => {
+        {myFavorites?.map(({ id, name, species, status, gender,origin, image}) => {
             return (
                 <Card
                     key={id}// para uso interno de React, no la veremos
                     id={id}
                     name={name}
+                    species={species}
                     status={status}
                     gender={gender}
+                    origin={origin.name}
                     image={image}
                     onClose={onClose}
                 />
