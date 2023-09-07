@@ -18,7 +18,7 @@ const Form = ({ login }) => {
         const value = event.target.value;
        
         setUserData({ ...userData, [property]: value })
-        setErrors(validation({ ...userData, [property]: value }));
+        setErrors(validation({ ...userData, [property]: value })); //le paso lo mismo que va a tener el estado para que no haya delay
     };
 
     const handleSubmit = (event) => {
